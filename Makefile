@@ -9,7 +9,7 @@ all: clean build deploy
 clean:
 ifneq ($(UID), 0)
 	@echo "You are not root. Exiting..."
-	@exit 0
+	@exit 1
 else
 	@echo "? Cleaning old build"
 	cd $(DESTDIR) && rm -rf *
@@ -24,7 +24,7 @@ build:
 deploy:
 ifneq ($(UID), 0)
 	@echo "You are not root. Exiting..."
-	@exit 0
+	@exit 1
 else
 	@echo "? Deploying site"
 	cp -r public/* /var/www/html/
